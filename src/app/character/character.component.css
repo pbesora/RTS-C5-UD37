@@ -1,0 +1,28 @@
+.char-div {
+  background-color: #33393d;
+  color: white;
+  font-size: small;
+  margin: 10px;
+  text-align: justify;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+h2{
+  font-size: x-large!important;
+}
+
+.char-div button {
+  border: 1px solid#343a40;
+  width: auto;
+}
+
+img{
+  width: auto;
+  border-radius: 10px;
+}
+
+.char-div h2 {
+  font-size: large;
+  margin-top: 10px;
+}
