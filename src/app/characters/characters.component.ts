@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import { withDisabledInitialNavigation } from '@angular/router';
+import { CharactersService } from "../characters.service";
 
 @Component({
   selector: 'app-characters',
@@ -9,22 +8,13 @@ import { withDisabledInitialNavigation } from '@angular/router';
 })
 export class CharactersComponent implements OnInit {
 
-  ids:any = null;
   characters:any = null;
 
-  constructor(private http: HttpClient) {
+  constructor(private charactersService: CharactersService){
   }
 
   ngOnInit(): void {
-
-    this.http.get("https://rickandmortyapi.com/api/character/[1,45,765,23,5,88,600,34]")
-    .subscribe(
-      result => {
-        this.characters = result;
-    },
-    error =>{
-        console.log('Error getting the data');
-    }
-    );
+    this.charactersService.returnResults()
+      .subscribe( result => this.characters = result);
   }
 }

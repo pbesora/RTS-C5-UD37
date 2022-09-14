@@ -8,6 +8,7 @@ import { AboutComponent } from './about/about.component';
 import { CharacterComponent } from './character/character.component';
 import {HttpClientModule} from "@angular/common/http";
 import { HomeComponent } from './home/home.component';
+import { CharDetailsComponent } from './char-details/char-details.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { HomeComponent } from './home/home.component';
     CharactersComponent,
     AboutComponent,
     CharacterComponent,
-    HomeComponent
+    HomeComponent,
+    CharDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,31 @@
+.character{
+  background-color: #33393d;
+  color: white;
+  border-radius: 25px;
+}
+.character h4{
+  color: #a0a0a0;
+}
+#main-img{
+  border-radius: 25px;
+}
+
+.accordion-item{
+  background-color: #33393d;
+  color: white;
+}
+#episodes{
+  margin-top: 30px;
+}
+.accordion-button{
+  color: white;
+  font-weight: bold;
+  background-color: #33393d;
+}
+.accordion-item{
+  border: red;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+}
