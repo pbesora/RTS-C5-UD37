@@ -1,7 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { reduce } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CharactersService } from "../characters.service";
+import { Character } from '../models/character.model';
 
 @Component({
   selector: 'app-char-details',
@@ -11,18 +11,67 @@ import { CharactersService } from "../characters.service";
   template:`[style]='updateStatus(char.status)'`
 })
 export class CharDetailsComponent implements OnInit {
-  id:any = null;
-  char:any = null;
+
+  currentCharacter: Character = {
+    name: '',
+    status: '',
+    species: '',
+    gender: '',
+    origin: '',
+    location: '',
+    image: ''
+  }
+
 
   dead = "#b01e1e";
   alive = "#2e7a23";
   unkn = "#9e9d9d";
 
-  constructor(private activatedRoute:ActivatedRoute, private charactersService: CharactersService) {
-    this.id = parseInt(this.activatedRoute.snapshot.paramMap.get('id') || '[]');
+  constructor(private activatedRoute:ActivatedRoute, private charactersService: CharactersService, private router: Router) { }
+
+  ngOnInit(): void {
+
+    this.getCharacter(this.activatedRoute.snapshot.paramMap.get('id')||'1')
   }
 
-  updateStatus(status:any){
+  getCharacter(id: string): void {
+    this.charactersService.get(id)
+      .subscribe(
+        data => {
+          this.currentCharacter = data;
+          console.log(data);
+        },
+        error => {
+          console.log(error);
+        });
+  }
+
+  updateCharacter(): void {
+
+    this.charactersService.update(this.currentCharacter.id, this.currentCharacter)
+      .subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log(error);
+        });
+  }
+
+  deleteCharacter(): void{
+    this.charactersService.delete(this.currentCharacter.id)
+    .subscribe(
+      response => {
+        console.log(response);
+        this.router.navigate(['/characters']);
+      },
+      error =>{
+        console.log(error);
+      }
+    );
+  }
+
+  updateStatusColor(status:any){
     if(status == "Alive"){
       return this.alive;
     }else if (status == "Dead") {
@@ -31,13 +80,4 @@ export class CharDetailsComponent implements OnInit {
       return this.unkn;
     }
   }
-
-
-  ngOnInit(): void {
-    this.charactersService.returnCharacter(this.id).subscribe(
-      result => this.char = result
-    )
-  }
-
-
 }

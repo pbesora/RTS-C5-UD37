@@ -1,0 +1,46 @@
+<div class="container mt-4">
+  <h1 class="h1 text-light">Add new character</h1>
+  <br>
+    <div id="formulario" *ngIf="!submitted">
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Name</span>
+        <input type="text" class="form-control" placeholder="Name" aria-describedby="basic-addon1" required [(ngModel)]="character.name"/>
+      </div>
+
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupSelect01">Status</label>
+        <select class="form-select" id="inputGroupSelect01" required [(ngModel)]="character.status">
+          <option value="1" selected>unknown</option>
+          <option value="2">Alive</option>
+          <option value="3">Dead</option>
+        </select>
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Species</span>
+        <input type="text" class="form-control" placeholder="Species" aria-describedby="basic-addon1" required [(ngModel)]="character.species">
+      </div>
+
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupSelect01">Gender</label>
+        <select class="form-select" id="inputGroupSelect01" required [(ngModel)]="character.gender">
+          <option value="1" selected>unknown</option>
+          <option value="2">Female</option>
+          <option value="3">Male</option>
+          <option value="4">Genderless</option>
+        </select>
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Origin</span>
+        <input type="text" class="form-control" placeholder="Origin" aria-label="Username" aria-describedby="basic-addon1" required [(ngModel)]="character.origin">
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Last location</span>
+        <input type="text" class="form-control" placeholder="Location" aria-label="Username" aria-describedby="basic-addon1" required [(ngModel)]="character.location">
+      </div>
+      <button class="btn btn-secondary btn-add" (click)="saveCharacter()">Submit</button>
+    </div>
+    <button *ngIf="submitted" class="btn btn-success btn-add mt-2" (click)="newCharacter()">Add</button>
+</div>

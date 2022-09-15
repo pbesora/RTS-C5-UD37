@@ -9,6 +9,9 @@ import { CharacterComponent } from './character/character.component';
 import {HttpClientModule} from "@angular/common/http";
 import { HomeComponent } from './home/home.component';
 import { CharDetailsComponent } from './char-details/char-details.component';
+import { CharFormComponent } from './char-form/char-form.component';
+import { FormsModule } from "@angular/forms";
+import { CharUpdateComponent } from './char-update/char-update.component';
 
 @NgModule({
   declarations: [
@@ -17,12 +20,15 @@ import { CharDetailsComponent } from './char-details/char-details.component';
     AboutComponent,
     CharacterComponent,
     HomeComponent,
-    CharDetailsComponent
+    CharDetailsComponent,
+    CharFormComponent,
+    CharUpdateComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

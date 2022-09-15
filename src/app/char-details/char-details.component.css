@@ -29,3 +29,6 @@
 .accordion-button:focus {
   box-shadow: none;
 }
+.btn{
+  margin: 2px;
+}

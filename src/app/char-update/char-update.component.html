@@ -1,0 +1,70 @@
+<div class="container mt-4">
+  <h1 class="h1 text-light">Update character</h1>
+  <br>
+    <div id="formulario">
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Name</span>
+        <input type="text" class="form-control" placeholder="Name" aria-describedby="basic-addon1" required [(ngModel)]="character.name"/>
+      </div>
+
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupSelect01">Status</label>
+        <select class="form-select" id="inputGroupSelect01" required [(ngModel)]="character.status">
+          <option value="1" selected>unknown</option>
+          <option value="2">Alive</option>
+          <option value="3">Dead</option>
+        </select>
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Species</span>
+        <input type="text" class="form-control" placeholder="Species" aria-describedby="basic-addon1" required [(ngModel)]="character.species">
+      </div>
+
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupSelect01">Gender</label>
+        <select class="form-select" id="inputGroupSelect01" required [(ngModel)]="character.gender">
+          <option value="1" selected>unknown</option>
+          <option value="2">Female</option>
+          <option value="3">Male</option>
+          <option value="4">Genderless</option>
+        </select>
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Origin</span>
+        <input type="text" class="form-control" placeholder="Origin" aria-label="Username" aria-describedby="basic-addon1" required [(ngModel)]="character.origin">
+      </div>
+
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Last location</span>
+        <input type="text" class="form-control" placeholder="Location" aria-label="Username" aria-describedby="basic-addon1" required [(ngModel)]="character.location">
+      </div>
+
+      <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-dark" id="exampleModalLabel">
+                Update character
+              </h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-dark">
+              ¿Are you sure you want to update this character?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                Close
+              </button>
+              <button type="button" class="btn btn-success" (click)="updateCharacter()" data-bs-dismiss="modal">
+                Update
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-success btn-add mt-2"  data-bs-toggle="modal" data-bs-target="#updateModal">Update</button>
+    </div>
+
+</div>
