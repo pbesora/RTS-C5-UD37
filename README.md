@@ -1,6 +1,6 @@
 # RicknMortyApp
 
-[Deploy](https://service-implemented.d2dxrpvxw0h8dc.amplifyapp.com)
+[Deploy](https://localcrud.dql5irj0zf1rl.amplifyapp.com/home)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.1.
 
