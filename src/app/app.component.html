@@ -10,20 +10,29 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#" routerLink="/home">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" routerLink="/characters">Characters</a>
+        <li class="nav-item"  *ngIf="isLoggedIn">
+          <a class="nav-link  active" href="#" routerLink="/characters">Characters</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" routerLink="/about">About</a>
+          <a class="nav-link  active" href="#" routerLink="/about">About</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" routerLink="/add-char">Add Character</a>
+        <li class="nav-item"  *ngIf="isLoggedIn">
+          <a class="nav-link  active" href="#" routerLink="/add-char">Add Character</a>
         </li>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-dark" type="submit">Search</button>
-      </form>
+      <ul class="navbar-nav mb-2 mb-lg-0" *ngIf="!isLoggedIn">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#" routerLink="/login">Login</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav mb-2 mb-lg-0" *ngIf="isLoggedIn">
+        <li class="nav-item">
+          <a class="nav-link active" href="#" routerLink="/home">{{username}}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link  active" href="#" routerLink="/home" (click)="logout()">LogOut</a>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>

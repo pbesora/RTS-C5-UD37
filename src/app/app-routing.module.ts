@@ -7,6 +7,8 @@ import { CharFormComponent } from './char-form/char-form.component';
 import { CharUpdateComponent } from './char-update/char-update.component';
 import { CharactersComponent } from './characters/characters.component';
 import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { AuthGuardService } from "./auth-guard.service";
 
 const routes: Routes = [
   {
@@ -20,6 +22,7 @@ const routes: Routes = [
   },
   {
     path: 'characters',
+    canActivate:[AuthGuardService],
     component: CharactersComponent
   },
   {
@@ -32,11 +35,17 @@ const routes: Routes = [
   },
   {
     path: 'add-char',
+    canActivate:[AuthGuardService],
     component: CharFormComponent
   },
   {
     path: 'characters/:id/update',
+    canActivate:[AuthGuardService],
     component: CharUpdateComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   }
 ];
 

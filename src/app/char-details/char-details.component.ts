@@ -46,18 +46,6 @@ export class CharDetailsComponent implements OnInit {
         });
   }
 
-  updateCharacter(): void {
-
-    this.charactersService.update(this.currentCharacter.id, this.currentCharacter)
-      .subscribe(
-        response => {
-          console.log(response);
-        },
-        error => {
-          console.log(error);
-        });
-  }
-
   deleteCharacter(): void{
     this.charactersService.delete(this.currentCharacter.id)
     .subscribe(

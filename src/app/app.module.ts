@@ -12,6 +12,9 @@ import { CharDetailsComponent } from './char-details/char-details.component';
 import { CharFormComponent } from './char-form/char-form.component';
 import { FormsModule } from "@angular/forms";
 import { CharUpdateComponent } from './char-update/char-update.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { authInterceptorProviders } from './auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,9 @@ import { CharUpdateComponent } from './char-update/char-update.component';
     HomeComponent,
     CharDetailsComponent,
     CharFormComponent,
-    CharUpdateComponent
+    CharUpdateComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +35,7 @@ import { CharUpdateComponent } from './char-update/char-update.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
